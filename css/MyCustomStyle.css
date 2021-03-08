@@ -1,0 +1,83 @@
+.login-container {
+  margin-top: 8%;
+  margin-bottom: 5%;
+  height: 110rem !important;
+}
+.login-form-1 {
+  padding: 5%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-1 h3 {
+  text-align: center;
+  color: #333;
+}
+.login-form-2 {
+  padding: 5%;
+  background-image: linear-gradient(to top, rgba(245, 246, 252, 0.52), #166294),
+    url("../images/bsu-building.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-2 h3 {
+  text-align: center;
+  color: #fff;
+}
+.login-container form {
+  padding: 10%;
+}
+.btnSubmit {
+  width: 50%;
+  border-radius: 1rem;
+  padding: 1.5%;
+  border: none;
+  cursor: pointer;
+}
+.login-form-1 .btnSubmit {
+  font-weight: 600;
+  color: #fff;
+  background-color: #0062cc;
+}
+.login-form-2 .btnSubmit {
+  font-weight: 600;
+  color: #0062cc;
+  background-color: #fff;
+}
+.login-form-2 .ForgetPwd {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+.login-form-1 .ForgetPwd {
+  color: #0062cc;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#register
+  .container
+  #login-row
+  #login-column
+  #login-box
+  #login-form
+  #register-link {
+  margin-top: -85px;
+}
+
+#register .container #register-row #register-column #register-box {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  max-width: 700px;
+  height: 1250px;
+  border: 1px solid #9c9c9c;
+  background-color: #eaeaea;
+}
+
+#register h3 {
+  margin-top: 50px;
+}
+
+a:active {
+  background-color: yellow !important;
+}
