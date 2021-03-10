@@ -1,16 +1,29 @@
 <?php
 
-$host = "localhost";
-$user = "root";
-$password = "";
-$dbname = "health_records";
 
-//data source name
-$dsn = "mysql:host=$host;dbname=$dbname;";
+class Connect{
+    
+    public $host = "localhost";
+    public $user = "root";
+    public $password = "";
+    public $dbname = "health_records";
+    //data source name
+    public $connection;
+    
+	public function __construct(){
+        $dsn = "mysql:host=$this->host;dbname=$this->dbname;";
+        $this->connection = new PDO($dsn, $this->user, $this->password);
+        //default is fetch object
+        $this->connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+		if (!$this->connection) {
+			echo "Not Connected";
+		}
+	}
 
-$connection = new PDO($dsn, $user, $password);
-//default is fetch object
-$connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+
+}
+
+
 
 //$stm = $connection->query("SELECT * FROM accountinformation");
 
@@ -60,3 +73,4 @@ $connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
 
 ?>
+

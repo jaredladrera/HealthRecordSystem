@@ -17,9 +17,12 @@
             <div id="register-row" class="row justify-content-center align-items-center" >
                 <div id="register-column" class="col-md-6">
                     <div id="register-box" class="col-md-12">
-                        <form id="register-form" class="form" action="" method="post">
+                    
                         <h3 class="text-center"><img src="../images/bsulogo.png" alt="" srcset=""></h3>
                             <h3 class="text-center text-info">Register User</h3>
+
+                                <p id="errorMessage" class="text-center" style="color:red;">Error</p>
+
                             <div class="form-group">
                                 <label for="name" class="text-info">Name:</label><br>
                                 <input type="text" name="name" id="name" class="form-control">
@@ -33,16 +36,24 @@
                                 <input type="text" name="middle" id="middle" class="form-control">
                             </div>
                             <div class="form-group">
+                                <label for="middle" class="text-info">Address:</label><br>
+                                <input type="text" name="address" id="address" class="form-control">
+                            </div>
+                            <div class="form-group">
                                 <label for="age" class="text-info">Age:</label><br>
                                 <input type="text" name="age" id="age" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="gender" class="text-info">Gender:</label><br>
-                                <input type="text" name="username" id="username" class="form-control">
+                                <input type="text" name="username" id="gender" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="contactNumber" class="text-info">Contact Number:</label><br>
                                 <input type="text" name="contactNumber" id="contactNumber" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="text-info">Email Address:</label><br>
+                                <input type="text" name="email" id="email" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="idNumber" class="text-info">ID Number:</label><br>
@@ -64,12 +75,13 @@
 
                             <div class="form-group">
                                 <label for="remember-me" class="text-info"></label><br>
-                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                <!-- <input type="submit" name="submit" class="btn btn-info btn-md" value="submit"> -->
+                                <button class="btn btn-info" onclick="register()">Register</button>
                             </div>
                             <div id="register-link" class="text-right">
                                 <a href="../index.php" class="text-info">Back to login</a>
                             </div>
-                        </form>
+                        
                     </div>
                 </div>
             </div>
@@ -83,3 +95,66 @@
 <script src="../dependency/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
+<script>
+         $('.form-control').keypress(function(event){
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if(keycode == '13'){
+                   register(); 
+                }
+
+                event.stopPropagation();
+        });
+
+        register = () => {
+           name =  $('#name').val();
+           lastname =  document.getElementById('lastname').value;
+           middle =  $('#middle').val();
+           age =  document.getElementById('age').value;
+           gender =  $('#gender').val();
+           address =  $('#address').val();
+           contactNumber =  document.getElementById('contactNumber').value;
+           idNumber =  $('#idNumber').val();
+           username =  $('#username').val();
+           password =  $('#password').val();
+           rePassword =  $('#rePassword').val();
+           email =  $('#email').val();
+
+            // alert(contactNumber);
+           
+
+        if(password == rePassword) {
+            
+               $.ajax({ 
+                    url: '../functions/fetchAjax.php',
+                    method: 'post',
+                    dataType: 'text',
+                    data: {
+                        key: 'registerUser',
+                        name: name,
+                        lastname: lastname,
+                        middle: middle,
+                        address: address,
+                        contactNumber: contactNumber,
+                        gender: gender,
+                        age: age,
+                        idNumber: idNumber,
+                        username: username,
+                        password: password,
+                        email: email,
+                    }, success: function(response){
+                        alert(response);
+                        window.location.href = '../index.php';
+                    }
+    
+                });
+
+        } else {
+            document.getElementById('errorMessage').innerHTML = "Password not match!";
+            alert("Password not match!");
+        }
+
+           
+        }
+
+
+</script>
