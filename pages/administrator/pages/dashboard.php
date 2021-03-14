@@ -1,5 +1,9 @@
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
+        <img src="../../images/bsulogo.png" alt="" srcset="">
+    </div>
+
+    <div class="row mt-5">
     <div class="col-md-3">
       <div class="card-counter primary">
         <i class="fa fa-code-fork"></i>

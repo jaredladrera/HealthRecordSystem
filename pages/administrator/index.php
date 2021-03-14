@@ -10,6 +10,7 @@
 				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 		<link rel="stylesheet" href="../../css/admin.css">
+
   </head>
   <body>
 		
@@ -28,17 +29,15 @@
               <a href="index.php?page=dashboard"><span class="fa fa-user mr-3"></span> Dashboard</a>
           </li>
           <li>
-            <a href="#"><span class="fa fa-sticky-note mr-3"></span> Friends</a>
+            <a href="index.php?page=users"><span class="fa fa-sticky-note mr-3"></span>All Users</a>
           </li>
           <li>
-            <a href="#"><span class="fa fa-sticky-note mr-3"></span> Subcription</a>
+            <a href="index.php?page=patients"><span class="fa fa-sticky-note mr-3"></span> Patient</a>
           </li>
           <li>
-            <a href="#"><span class="fa fa-paper-plane mr-3"></span> Settings</a>
+            <a href="index.php?page=accountSettings"><span class="fa fa-paper-plane mr-3"></span>Account Settings</a>
           </li>
-          <li>
-            <a href="#"><span class="fa fa-paper-plane mr-3"></span> Information</a>
-          </li>
+
           <li>
             <a href="#"><span class="fa fa-paper-plane mr-3"></span> Logout</a>
           </li>

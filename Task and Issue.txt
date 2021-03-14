@@ -1,0 +1,21 @@
+Task: 
+Create login function
+Create register function
+Create saving patient
+Display Patient
+Delete Patient
+Print documents in patient
+Update account settings admin/nurse
+Update Account status
+Graph patient every month bar graph
+Install Datatables in the project
+
+
+Issue: 
+admin/nurse page not clickable the toggle button
+
+
+Accomplished
+-create UI for admin
+-create UI for nurse
+-create saveAny function for saving any data
