@@ -39,7 +39,7 @@
           </li>
 
           <li>
-            <a href="#"><span class="fa fa-paper-plane mr-3"></span> Logout</a>
+            <a href="../../functions/logout.php"><span class="fa fa-paper-plane mr-3"></span> Logout</a>
           </li>
         </ul>
 

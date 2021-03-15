@@ -1,5 +1,6 @@
 Task: 
-Create login function
+Create login function (finish)
+Set Session of every pages
 Create register function
 Create saving patient
 Display Patient

@@ -30,11 +30,12 @@ if(isset($_POST["key"])) {
     endif; //end
 
 
-    if ($key == 'login') {
+    if ($key == 'login') :
+		$account_status = '';
 		$username = $database->conn->real_escape_string($_POST['username']);
 		$password = $database->conn->real_escape_string($_POST['password']);
 
-				$query = $database->conn->query("SELECT * from accountinformation where username = '$username' and password = '$password'");
+				$query = $database->conn->query("SELECT * from accountinformation where username = '$username' AND password = '$password'");
 
 				if ($query) {
 					
@@ -47,26 +48,26 @@ if(isset($_POST["key"])) {
 						{
 							$_SESSION['uid'] = $data['id'];
 							$_SESSION['account_status'] = $data['account_status'];
-                            header("location: ../pages/administrator/");
-							//exit('admin');
+							//header("Location:../pages/administrator/index.php");
+							exit("admin");
 						}
 						else if($data['account_status'] == 'nurse')
 						{
                             $_SESSION['uid'] = $data['id'];
 							$_SESSION['account_status'] = $data['account_status'];
-                            header("location: ../pages/nurse/");
-							//exit('nurse');
+                           
+							exit('nurse');
 						}
 						else if($data['account_status'] == 'user')
 						{
-							exit('okay');
+							exit('Your account is waiting for approval by admin');
 						}
 					}
-					else{ exit("<p class='text-danger'>Username and Password not match!</p>"); }							
+					else{ exit("Username and Password not match!"); }							
 					
 				}else{exit("error");}
 
-	}//function
+	endif;
 
 } else {
     exit("Key is not set");

@@ -49,7 +49,6 @@
 <script src="dependency/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
-
 <script>
 $('.form-control').keypress(function(event){
     var keycode = (event.keyCode ? event.keyCode : event.which);
@@ -60,34 +59,47 @@ $('.form-control').keypress(function(event){
     });
 
 function login() {
-    window.location.href = 'admin/admin_index.php';
-    // let username = $('#username').val();
-    // let password = $('#password').val();
+    // window.location.href = 'admin/admin_index.php';
+    let username = $('#username').val();
+    let password = $('#password').val();
 
-    // if(username != '' || password != '') {
+    if(username != '' || password != '') {
 
-    //     $.ajax({
+        $.ajax({
 
-    //     url: 'functions/fetchAjax.php',
-    //     method: 'post',
-    //     dataType: 'text',
-    //     data: {
-    //         key: 'login',
-    //         username: username,
-    //         password: password
-    //     }, success: function(response){
+        url: 'functions/fetchAjax.php',
+        method: 'post',
+        dataType: 'text',
+        data: {
+            key: 'login',
+            username: username,
+            password: password
+        }, success: (res) => {
+            $admin = toString("admin");
+            $nurse = toString("nurse");
+            $user = toString("user");
+            $result = toString(res);
 
-    //         console.log(response);
-    //     }
 
-    //     });
+            if($result == $admin) {
+                window.location.href = 'pages/administrator/index.php';
+            } else if($result == $nurse){
+                window.location.href = 'pages/nurse/index.php';
+            } else if($result == $user) {
+               document.getElementById('errorMessage').innerHTML = res;    
+            } else {
+                document.getElementById('errorMessage').innerHTML = res;    
+            }
+        }
+
+        });
 
 
-    // } else {
+    } else {
         
-    //     document.getElementById('errorMessage').innerHTML = "Pleas fill up all fields";
-    // }
+        document.getElementById('errorMessage').innerHTML = "Pleas fill up all fields";
+    }
 
 }
-
 </script>
+
