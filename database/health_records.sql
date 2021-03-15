@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2021 at 03:35 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Mar 15, 2021 at 04:23 PM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.2.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -32,11 +31,12 @@ CREATE TABLE `accountinformation` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `lastname` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
   `middle_name` varchar(100) NOT NULL,
   `age` varchar(10) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
+  `account_password` varchar(100) NOT NULL,
   `contact_number` varchar(100) NOT NULL,
   `id_number` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -47,8 +47,29 @@ CREATE TABLE `accountinformation` (
 -- Dumping data for table `accountinformation`
 --
 
-INSERT INTO `accountinformation` (`id`, `name`, `lastname`, `middle_name`, `age`, `gender`, `username`, `password`, `contact_number`, `id_number`, `email`, `account_status`) VALUES
-(1, 'lance', 'cabiscuelas', 'ladrera', '15', 'male', 'lance21', 'lance21', '09284', 's2038589', 'ladrera21@gmail.com', 'user');
+INSERT INTO `accountinformation` (`id`, `name`, `lastname`, `address`, `middle_name`, `age`, `gender`, `username`, `account_password`, `contact_number`, `id_number`, `email`, `account_status`) VALUES
+(1, 'lance', 'cabiscuelas', '', 'ladrera', '15', 'male', 'lance21', 'lance21', '09284', 's2038589', 'ladrera21@gmail.com', 'nurse');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `patients`
+--
+
+CREATE TABLE `patients` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
+  `id_number` varchar(50) NOT NULL,
+  `issue` varchar(50) NOT NULL,
+  `contact_number` varchar(30) NOT NULL,
+  `age` varchar(10) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `note` varchar(200) NOT NULL,
+  `mother_full_name` varchar(100) NOT NULL,
+  `father_full_name` varchar(100) NOT NULL,
+  `parents_contect` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -61,6 +82,12 @@ ALTER TABLE `accountinformation`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `patients`
+--
+ALTER TABLE `patients`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -68,7 +95,13 @@ ALTER TABLE `accountinformation`
 -- AUTO_INCREMENT for table `accountinformation`
 --
 ALTER TABLE `accountinformation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `patients`
+--
+ALTER TABLE `patients`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

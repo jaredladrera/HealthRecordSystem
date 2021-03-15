@@ -44,8 +44,11 @@
                                 <input type="text" name="age" id="age" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="gender" class="text-info">Gender:</label><br>
-                                <input type="text" name="username" id="gender" class="form-control">
+                                <label for="gender">Gender</label>
+                                <select class="form-control" id="gender">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="contactNumber" class="text-info">Contact Number:</label><br>

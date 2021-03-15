@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['id']) && !isset($_SESSION['account_type'])) {
+  header("Location: ../../index.php");
+}
+?>
+
 <!doctype html>
 <html lang="en">
   <head>

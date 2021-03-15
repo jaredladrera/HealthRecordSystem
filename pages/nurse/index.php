@@ -1,7 +1,15 @@
+<?php 
+session_start();
+if(!isset($_SESSION['id']) && !isset($_SESSION['account_type'])) {
+  header("Location: ../../index.php");
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Sidebar 01</title>
+  	<title>Nurse</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -11,6 +19,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 			<link rel="stylesheet" href="../../css/nurse.css">
 			<link rel="stylesheet" href="../../css/chart.css">
+      <link rel="stylesheet" href="../../dependency/datatables/datatables.min.css">
   </head>
   <body>
 		
@@ -21,7 +30,7 @@
 	        <ul class="list-unstyled components mb-5">
 	  
 	          <li>
-	              <a href="index.php?page=dashboard">Dashboard</a>
+	              <a href="index.php?page=dashboard">Dashboard </a>
 	          </li>
 	          <li>
               <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
@@ -76,7 +85,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item ">
-                    <bbutton class="btn btn-danger">Logout</bbutton>
+                    <a href="../../functions/logout.php" class="btn btn-danger">Logout</a>
                 </li>
         
               </ul>
@@ -115,9 +124,12 @@
     <script src="../../dependency/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="../../javascript/nurse.js"></script>
+    <script src="../../dependency/datatables.min.js"></script>
   </body>
 </html>
 
 <script>
-
+$( document ).ready(function() {
+    console.log( "ready!" );
+});
 </script>
