@@ -27,14 +27,18 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
         if($res->num_rows === 1) {
             $row = $res->fetch_array();
             if($row['username'] === $username && $row['account_password'] === $password) {
-                $_SESSION['username'] = $row['username'];
-                $_SESSION['id'] = $row['id'];
-                $_SESSION['account_type'] = $row['account_status'];
+                session_start();
 
                 if($row['account_status'] === 'admin') {
+                    $_SESSION['username'] = $row['username'];
+                    $_SESSION['id'] = $row['id'];
+                    $_SESSION['account_type'] = $row['account_status'];
                     header("Location: ../pages/administrator/index.php");
                     exit();
                 } elseif ($row['account_status'] === 'nurse') {
+                    $_SESSION['username'] = $row['username'];
+                    $_SESSION['id'] = $row['id'];
+                    $_SESSION['account_type'] = $row['account_status'];
                     header("Location: ../pages/nurse/index.php");
                     exit();
                 } elseif ($row['account_status'] === 'user') {

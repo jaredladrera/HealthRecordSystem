@@ -21,7 +21,7 @@
                         <h3 class="text-center"><img src="../images/bsulogo.png" alt="" srcset=""></h3>
                             <h3 class="text-center text-info">Register User</h3>
 
-                                <p id="errorMessage" class="text-center" style="color:red;">Error</p>
+                                <!-- <p id="errorMessage" class="text-center" style="color:red;">Error</p> -->
 
                             <div class="form-group">
                                 <label for="name" class="text-info">Name:</label><br>
@@ -44,7 +44,7 @@
                                 <input type="text" name="age" id="age" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="gender">Gender</label>
+                                <label for="gender" class="text-info">Gender</label>
                                 <select class="form-control" id="gender">
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>

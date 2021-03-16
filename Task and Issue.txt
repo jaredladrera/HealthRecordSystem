@@ -1,7 +1,7 @@
 Task: 
 Create login function (finish)
 Set Session of every pages
-Create register function
+Create register function (finish)
 Create saving patient
 Display Patient
 Delete Patient
@@ -20,3 +20,10 @@ Accomplished
 -create UI for admin
 -create UI for nurse
 -create saveAny function for saving any data
+
+Weekends Task
+-load table using ajax jquery
+-reading some docs about fpdf
+
+Tomorrow Task (March 17, 2021)
+-update own account function

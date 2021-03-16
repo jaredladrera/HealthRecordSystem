@@ -29,6 +29,29 @@ if(isset($_POST["key"])) {
         $obj->insertAny('accountinformation', $data, $message);
     endif; //end
 
+    if($key == 'save_patient'): 
+
+        $message = "New patient save";
+
+        $data = array(
+            "name" => $_POST['name'],
+            "address" => $_POST['address'],
+			"contact_number" => $_POST['contact_number'],
+			"gender" => $_POST['gender'],
+			"id_number" => $_POST['id_number'],
+			"issue" => $_POST['issue'],
+			"mother_full_name" => $_POST['mother'],
+			"father_full_name" => $_POST['father'],
+			"lastname" => $_POST['lastname'],
+			"age" => $_POST['age'],
+			"parent_contact" => $_POST['parent_contact'],
+            "note" => "note"
+        );
+        $obj->insertAny('patients', $data, $message);
+
+    
+    endif;
+
 
 
 } else {
