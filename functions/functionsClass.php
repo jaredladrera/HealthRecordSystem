@@ -26,6 +26,28 @@ class DataOperation extends Connect{
 
 	}
 
+	function updateAny($tbl_name, $data, $id){
+
+			$sql = '';
+			$sql2 = '';
+			$sql1 ="UPDATE ".$tbl_name." SET ";
+
+			foreach ($data as $key => $value) {
+			$sql2 .= $key." = '".$value."' , ";
+			}
+			
+			$sql3=rtrim($sql2,", ");
+			$sql .=$sql1.$sql3." WHERE id = ".$id;
+			// $query = mysqli_query($this->conn, $sql);
+			$query = $this->connection->prepare($sql);
+		if ($query->execute()) {
+			exit("Successfully Updated!!!");
+		}else{
+			exit($sql);
+		}
+
+	}
+
 	// public function required_validation($fields){
 	// 		$count = 0;
 
@@ -53,27 +75,7 @@ class DataOperation extends Connect{
 
 	// }
 
-	// function updatingg($tbl_name, $data, $id){
 
-	// 		$sql = '';
-	// 		$sql2 = '';
-	// 		$sql1 ="UPDATE ".$tbl_name." SET ";
-
-	// 		foreach ($data as $key => $value) {
-	// 		$sql2 .= $key." = '".$value."' , ";
-	// 		}
-			
-	// 		$sql3=rtrim($sql2,", ");
-	// 		$sql .=$sql1.$sql3." WHERE id = ".$id;
-	// 		$query = mysqli_query($this->conn, $sql);
-
-	// 	if ($query) {
-	// 		exit("Successfully Updated!!!");
-	// 	}else{
-	// 		exit($sql);
-	// 	}
-
-	// }
 
 	// function delete_row($tbl_name, $id, $status){
 	// 	$sql = $this->conn->query("DELETE FROM ".$tbl_name." where id = '$id'");

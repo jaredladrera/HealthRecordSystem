@@ -3,6 +3,9 @@ session_start();
 // if(!isset($_SESSION['id']) && !isset($_SESSION['account_type'])) {
 //   header("Location: ../../index.php");
 // }
+include "../../functions/mysqliConnection.php";
+$database = new Database;
+
 
 ?>
 

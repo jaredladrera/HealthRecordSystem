@@ -9,9 +9,9 @@ if(isset($_POST["key"])) {
     $key = $_POST['key'];
 
     // this is for register the new user
+    
     if($key == 'registerUser') :
         $message = "You are now register! Please wait to confirm your account by the admin. Thank you!";
-
         $data = array(
             "name" => $_POST['name'],
             "address" => $_POST['address'],
@@ -50,6 +50,33 @@ if(isset($_POST["key"])) {
         $obj->insertAny('patients', $data, $message);
 
     
+    endif;
+
+    if($key == "updateAccount") :
+        $id = $_POST['myId'];
+
+        $data = array(
+			'name' => $_POST['name'],
+			'lastname' => $_POST['lastname'],
+			'middle_name' => $_POST['middleName'],
+			'gender' => $_POST['gender'],
+			'age' => $_POST['age'],
+			'username' => $_POST['username'],
+			'account_password' => $_POST['password'],
+			'contact_number' => $_POST['contactNumber'],
+			'id_number' => $_POST['idNumber'],
+			'email' => $_POST['email'],
+            'address' => $_POST['address']
+		);
+
+        $obj->updateAny('accountinformation', $data, $id);
+		exit('Updated Successfully');
+    
+    endif;
+
+    if($key == "test") : 
+        $name = $_POST['name'];
+        exit($name);
     endif;
 
 
