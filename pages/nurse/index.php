@@ -122,17 +122,20 @@ $database = new Database;
 		</div>
 
 
+
     <script src="../../dependency/jquery.min.js"></script>
     <script src="../../dependency/popper.min.js"></script>
     <script src="../../dependency/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="../../dependency/datatables/datatables.min.js"></script>
     <script src="../../javascript/nurse.js"></script>
-    <script src="../../dependency/datatables.min.js"></script>
   </body>
 </html>
 
 <script>
-$( document ).ready(function() {
-    console.log( "ready!" );
+$(document).ready(function() {
+  //patient.php table
+  $('#patientTable').DataTable();
 });
+
 </script>

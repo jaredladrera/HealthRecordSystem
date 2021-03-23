@@ -26,4 +26,7 @@ Weekends Task
 -reading some docs about fpdf
 
 Tomorrow Task (March 17, 2021)
--update own account function
+-update own account function (finsh)
+
+Tomorrow Task (March 18, 2021)
+-Display data patient in patientDetails.php

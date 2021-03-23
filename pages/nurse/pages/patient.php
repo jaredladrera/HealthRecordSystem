@@ -4,7 +4,7 @@ span {
 }
 </style>
 <div class="container">
-    <div class="row">
+    <div class="row" style="margin-bottom:2rem;">
     <div class="col col-md-12">
     <button type="button" class="btn btn-info float-right" data-toggle="modal" data-target="#myModal">
         New Patient
@@ -126,54 +126,32 @@ span {
 
     </div>
     </div>
-<div class="row">
-    <table class="table" id="patientTable" style="margin-top: 3rem;">
-    <thead class="thead-light">
-        <tr>
-        <th scope="col">#</th>
-        <th scope="col">Full Name</th>
-        <th scope="col">Issue</th>
-        <th scope="col">ID Number</th>
-        <th scope="col">Operations</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Fever</td>
-        <td>@mdo</td>
-        <td>
-            <button class="btn btn-info">Document</button>
-            <a href="index.php?page=patientDetails" class="btn btn-primary">Details</a>
-            <button class="btn btn-danger">Delete</button>
-        </td>
-        </tr>
-        <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>toothache</td>
-        <td>@fat</td>
-        <td>
-            <button class="btn btn-info">Document</button>
-            <button class="btn btn-primary">Details</button>
-            <button class="btn btn-danger">Delete</button>
-        </td>
-        </tr>
-        <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>headache</td>
-        <td>@twitter</td>
-        <td>
-            <button class="btn btn-info">Document</button>
-            <button class="btn btn-primary">Details</button>
-            <button class="btn btn-danger">Delete</button>
-        </td>
-        </tr>
-    </tbody>
-    </table>
-</div><br>
+
+<!-- table can't render perfectly in row division  -->
+<table class="table" id="patientTable" style="margin-top: 4rem;">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Fullname</th>
+      <th scope="col">Last</th>
+      <th scope="col">ID Number</th>
+      <th scope="col">Accoun Status</th>
+      <th scope="col">Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+
+      <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
 
 <div class="row">
     <h2 class="text-center">Notice</h2>
@@ -197,8 +175,8 @@ function savePatients() {
   let contact_number = $('#contact_number').val();
   let age = $('#age').val();
   let gender = $('#gender').val();
-  let mother = $('#mother').val();
-  let father = $('#father').val();
+//   let mother = $('#mother').val();
+//   let father = $('#father').val();
   let parent_contact = $('#parent_contact').val();
   let note = $('#note').val();
   let address = $('#address').val();
@@ -219,8 +197,8 @@ function savePatients() {
                         gender: gender,
                         age: age,
                         id_number: id_number,
-                        mother: mother,
-                        father: father,
+                        // mother: mother,
+                        // father: father,
                         issue: issue,
                         note: note,
                         parent_contact: parent_contact

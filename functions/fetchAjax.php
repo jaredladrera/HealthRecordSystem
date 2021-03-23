@@ -40,8 +40,6 @@ if(isset($_POST["key"])) {
 			"gender" => $_POST['gender'],
 			"id_number" => $_POST['id_number'],
 			"issue" => $_POST['issue'],
-			"mother_full_name" => $_POST['mother'],
-			"father_full_name" => $_POST['father'],
 			"lastname" => $_POST['lastname'],
 			"age" => $_POST['age'],
 			"parent_contact" => $_POST['parent_contact'],
@@ -79,7 +77,32 @@ if(isset($_POST["key"])) {
         exit($name);
     endif;
 
+    if($key == "updateAccountStatus") :
 
+        $new_status = $_POST['status']; 
+        $id = $_POST['id'];
+        
+        $fields = array(
+            "account_status"=>$new_status,
+        );
+
+        $obj->updateAny('accountinformation', $fields, $id);
+        exit("Please wait...");
+
+    endif;
+
+    if($key == 'deleteAccount') :
+        $id = $_POST['id'];
+
+       $sql = $database->conn->query("DELETE FROM accountinformation where id = '$id'");
+
+       if($sql) {
+           exit("Deleted Successfully");
+       } else {
+           exit($sql);
+       }
+       
+    endif;
 
 } else {
     exit("Key is not set");

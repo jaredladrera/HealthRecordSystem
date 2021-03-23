@@ -1,4 +1,6 @@
 <?php
+include_once "../../functions/mysqliConnection.php";
+$database = new Database;
 session_start();
 if(!isset($_SESSION['id']) && !isset($_SESSION['account_type'])) {
   header("Location: ../../index.php");
@@ -8,7 +10,7 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['account_type'])) {
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Sidebar 04</title>
+  	<title>Administrator</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -17,6 +19,7 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['account_type'])) {
 				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 		<link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="../../dependency/datatables/datatables.min.css">
 
   </head>
   <body>
@@ -58,9 +61,7 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['account_type'])) {
 
                     if (isset($_GET['page'])) {
                         $page = $_GET['page'];
-  
-                             $display = "pages/".$page.'.php';
-                        
+                        $display = "pages/".$page.'.php';               
 
                         include($display);
                     }else{
@@ -70,12 +71,22 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['account_type'])) {
                     }
                 ?>
       </div>
+      
 		</div>
 
     <script src="../../dependency/jquery.min.js"></script>
     <script src="../../dependency/popper.min.js"></script>
     <script src="../../dependency/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="../../dependency/datatables/datatables.min.js"></script>
     <script src="../../javascript/admin.js"></script>
   </body>
 </html>
+<script>
+// for user.php page table
+$(document).ready(function() {
+  $('.userTable').DataTable();
+});
+
+
+</script>
