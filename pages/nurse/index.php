@@ -18,11 +18,10 @@ $database = new Database;
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 		
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 			<link rel="stylesheet" href="../../css/nurse.css">
 			<link rel="stylesheet" href="../../css/chart.css">
       <link rel="stylesheet" href="../../dependency/datatables/datatables.min.css">
+      <link rel="stylesheet" href="../../dependency/font-awesome/css/font-awesome.min.css">
   </head>
   <body>
 		
@@ -88,7 +87,7 @@ $database = new Database;
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item ">
-                    <a href="../../functions/logout.php" class="btn btn-danger">Logout</a>
+                    <a href="../../functions/logout.php" class="btn btn-danger btn-sm">Logout</a>
                 </li>
         
               </ul>

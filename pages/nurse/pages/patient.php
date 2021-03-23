@@ -1,3 +1,7 @@
+<?php
+$sql = $database->conn->query("SELECT * FROM patients");
+?>
+
 <style>
 span {
     color: red;
@@ -78,14 +82,14 @@ span {
                     </div>
                     <div class="col col-md-4">
                         <div class="form-group">
-                            <label for="mother">Mother's Full Name <span>*</span></label>
-                            <input type="text" id="mother" class="form-control">
+                            <label for="guardian">Guardian's Full Name <span>*</span></label>
+                            <input type="text" id="guardian" class="form-control">
                         </div>
                     </div>
                     <div class="col col-md-4">
-                        <div class="form-group">
-                            <label for="father">Father's Full Name <span>*</span></label>
-                            <input type="text" id="father" class="form-control">
+                    <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -96,9 +100,13 @@ span {
                             <input type="text" id="parent_contact" class="form-control">
                         </div>
                     <div class="form-group">
-                            <label for="address">Address</label>
-                            <input type="text" id="address" class="form-control">
-                        </div>
+                        <label for="issue_status">Status <span>*</span></label>
+                        <select class="form-control" id="issue_status">
+                            <option value="minor">Minor</option>
+                            <option value="major">Major</option>
+                        </select>
+                    </div>
+  
                     </div>
                     <div class="col col-md-8">
                     <div class="form-group">
@@ -128,29 +136,37 @@ span {
     </div>
 
 <!-- table can't render perfectly in row division  -->
+
+
+
 <table class="table" id="patientTable" style="margin-top: 4rem;">
   <thead class="thead-light">
     <tr>
       <th scope="col">Fullname</th>
-      <th scope="col">Last</th>
+      <th scope="col">Contact #</th>
       <th scope="col">ID Number</th>
-      <th scope="col">Accoun Status</th>
+      <th scope="col">Issue</th>
       <th scope="col">Operations</th>
     </tr>
   </thead>
   <tbody>
-
+  <?php while($row = $sql->fetch_array()): ?>
       <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><?php echo $row['name']." ".$row['lastname']; ?></td>
+      <td><?php echo $row['contact_number']; ?></td>
+      <td><?php echo $row['id_number']; ?></td>
+      <td><?php echo $row['issue']; ?></td>
+      <td>
+        <button class="btn btn-primary"><i class="fa fa-file-text" aria-hidden="true"></i></button>
+        <button class="btn btn-info"><i class="fa fa-info-circle" aria-hidden="true"></i></button>
+      </td>
       </tr>
+    <?php endwhile; ?>
 
     
   </tbody>
 </table>
+
 
 
 <div class="row">
@@ -175,8 +191,8 @@ function savePatients() {
   let contact_number = $('#contact_number').val();
   let age = $('#age').val();
   let gender = $('#gender').val();
-//   let mother = $('#mother').val();
-//   let father = $('#father').val();
+  let guardian = $('#guardian').val();
+  let issue_status = $('#issue_status').val();
   let parent_contact = $('#parent_contact').val();
   let note = $('#note').val();
   let address = $('#address').val();
@@ -197,14 +213,14 @@ function savePatients() {
                         gender: gender,
                         age: age,
                         id_number: id_number,
-                        // mother: mother,
-                        // father: father,
+                        guardian: guardian,
+                        issue_status: issue_status,
                         issue: issue,
                         note: note,
                         parent_contact: parent_contact
                     }, success: function(response){
                         alert(response);
-                        
+                        location.reload();
                     }
     
                 });
@@ -214,5 +230,7 @@ function savePatients() {
 
  
 }
+
+
 
 </script>

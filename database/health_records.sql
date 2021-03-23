@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2021 at 03:19 AM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.2.31
+-- Generation Time: Mar 23, 2021 at 03:40 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -68,17 +69,22 @@ CREATE TABLE `patients` (
   `gender` varchar(10) NOT NULL,
   `note` varchar(200) NOT NULL,
   `guardian` varchar(100) NOT NULL,
-  `parent_contact` varchar(50) NOT NULL
+  `parent_contact` varchar(50) NOT NULL,
+  `issue_status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `patients`
 --
 
-INSERT INTO `patients` (`id`, `name`, `lastname`, `id_number`, `issue`, `contact_number`, `address`, `age`, `gender`, `note`, `guardian`, `parent_contact`) VALUES
-(2, 'Lance Jared Cabiscuelas', '', '', '', '09307980536', '', '', 'male', 'note', '', ''),
-(3, 'Lance Jared Cabiscuelas', 'ad', 'ad', 'da', '09307980536', 'ad', '23', 'male', 'note', '', ''),
-(4, 'Lance Jared Cabiscuelas', 'kgh', 'jhgkjk', 'gkgk', '09307980536', 'ghkjgk', 'g456', 'male', 'note', '', 'gk');
+INSERT INTO `patients` (`id`, `name`, `lastname`, `id_number`, `issue`, `contact_number`, `address`, `age`, `gender`, `note`, `guardian`, `parent_contact`, `issue_status`) VALUES
+(2, 'Lance Jared Cabiscuelas', '', '', '', '09307980536', '', '', 'male', 'note', '', '', ''),
+(3, 'Lance Jared Cabiscuelas', 'ad', 'ad', 'da', '09307980536', 'ad', '23', 'male', 'note', '', '', ''),
+(4, 'Lance Jared Cabiscuelas', 'kgh', 'jhgkjk', 'gkgk', '09307980536', 'ghkjgk', 'g456', 'male', 'note', '', 'gk', ''),
+(5, 'christine ', 'senete', 'SN3485869', 'headache', '09307980536', 'Malvar Batangas', '24', 'female', 'note', 'Senete', '09307980536', ''),
+(6, 'test', 'test', 'test', 'test', 'test', 'tets', 'etst', 'male', 'note', 'teste', 'tet', ''),
+(7, 'Lance Jared Cabiscuelas', 'wer', 'et', 'wt', '09307980536', 'wt', 'twe', 'female', 'note', 'tw', 'wrt', ''),
+(8, 'lance Cabiscuelas', 'aasdf', 'dsfa', 'daf', '09307980536', 'dfa', 'fad', 'male', 'note', 'afa', 'afd', 'minor');
 
 -- --------------------------------------------------------
 
@@ -135,7 +141,7 @@ ALTER TABLE `accountinformation`
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `testuser`

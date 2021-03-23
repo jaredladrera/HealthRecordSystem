@@ -43,6 +43,8 @@ if(isset($_POST["key"])) {
 			"lastname" => $_POST['lastname'],
 			"age" => $_POST['age'],
 			"parent_contact" => $_POST['parent_contact'],
+            "guardian" => $_POST['guardian'],
+            "issue_status" => $_POST['issue_status'],
             "note" => "note"
         );
         $obj->insertAny('patients', $data, $message);
