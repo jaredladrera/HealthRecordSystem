@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2021 at 03:40 PM
+-- Generation Time: Mar 09, 2021 at 03:35 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -32,12 +32,11 @@ CREATE TABLE `accountinformation` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `lastname` varchar(100) NOT NULL,
-  `address` varchar(100) NOT NULL,
   `middle_name` varchar(100) NOT NULL,
   `age` varchar(10) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `username` varchar(100) NOT NULL,
-  `account_password` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `contact_number` varchar(100) NOT NULL,
   `id_number` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -48,62 +47,8 @@ CREATE TABLE `accountinformation` (
 -- Dumping data for table `accountinformation`
 --
 
-INSERT INTO `accountinformation` (`id`, `name`, `lastname`, `address`, `middle_name`, `age`, `gender`, `username`, `account_password`, `contact_number`, `id_number`, `email`, `account_status`) VALUES
-(1, 'Lance Jared Cabiscuelas', 'cabiscuelas', 'Malvar Batangas', 'ladrera', '15', 'male', 'lance21', 'lance21', '09307980536', 's2038589', 'ladrera21@gmail.com', 'nurse');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `patients`
---
-
-CREATE TABLE `patients` (
-  `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `lastname` varchar(50) NOT NULL,
-  `id_number` varchar(50) NOT NULL,
-  `issue` varchar(50) NOT NULL,
-  `contact_number` varchar(30) NOT NULL,
-  `address` varchar(100) NOT NULL,
-  `age` varchar(10) NOT NULL,
-  `gender` varchar(10) NOT NULL,
-  `note` varchar(200) NOT NULL,
-  `guardian` varchar(100) NOT NULL,
-  `parent_contact` varchar(50) NOT NULL,
-  `issue_status` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `patients`
---
-
-INSERT INTO `patients` (`id`, `name`, `lastname`, `id_number`, `issue`, `contact_number`, `address`, `age`, `gender`, `note`, `guardian`, `parent_contact`, `issue_status`) VALUES
-(2, 'Lance Jared Cabiscuelas', '', '', '', '09307980536', '', '', 'male', 'note', '', '', ''),
-(3, 'Lance Jared Cabiscuelas', 'ad', 'ad', 'da', '09307980536', 'ad', '23', 'male', 'note', '', '', ''),
-(4, 'Lance Jared Cabiscuelas', 'kgh', 'jhgkjk', 'gkgk', '09307980536', 'ghkjgk', 'g456', 'male', 'note', '', 'gk', ''),
-(5, 'christine ', 'senete', 'SN3485869', 'headache', '09307980536', 'Malvar Batangas', '24', 'female', 'note', 'Senete', '09307980536', ''),
-(6, 'test', 'test', 'test', 'test', 'test', 'tets', 'etst', 'male', 'note', 'teste', 'tet', ''),
-(7, 'Lance Jared Cabiscuelas', 'wer', 'et', 'wt', '09307980536', 'wt', 'twe', 'female', 'note', 'tw', 'wrt', ''),
-(8, 'lance Cabiscuelas', 'aasdf', 'dsfa', 'daf', '09307980536', 'dfa', 'fad', 'male', 'note', 'afa', 'afd', 'minor');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `testuser`
---
-
-CREATE TABLE `testuser` (
-  `1d` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `lastname` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `testuser`
---
-
-INSERT INTO `testuser` (`1d`, `name`, `lastname`) VALUES
-(1, 'lance', 'cabiscuelas');
+INSERT INTO `accountinformation` (`id`, `name`, `lastname`, `middle_name`, `age`, `gender`, `username`, `password`, `contact_number`, `id_number`, `email`, `account_status`) VALUES
+(1, 'lance', 'cabiscuelas', 'ladrera', '15', 'male', 'lance21', 'lance21', '09284', 's2038589', 'ladrera21@gmail.com', 'user');
 
 --
 -- Indexes for dumped tables
@@ -116,18 +61,6 @@ ALTER TABLE `accountinformation`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `patients`
---
-ALTER TABLE `patients`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `testuser`
---
-ALTER TABLE `testuser`
-  ADD PRIMARY KEY (`1d`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -135,19 +68,7 @@ ALTER TABLE `testuser`
 -- AUTO_INCREMENT for table `accountinformation`
 --
 ALTER TABLE `accountinformation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `patients`
---
-ALTER TABLE `patients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `testuser`
---
-ALTER TABLE `testuser`
-  MODIFY `1d` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

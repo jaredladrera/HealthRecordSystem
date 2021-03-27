@@ -45,7 +45,9 @@ if(isset($_POST["key"])) {
 			"parent_contact" => $_POST['parent_contact'],
             "guardian" => $_POST['guardian'],
             "issue_status" => $_POST['issue_status'],
-            "note" => "note"
+            "date_issue" => $_POST['date_issue'],
+            "time_issue" => $_POST['time_issue'],
+            "note" => $_POST['note']
         );
         $obj->insertAny('patients', $data, $message);
 
@@ -104,6 +106,61 @@ if(isset($_POST["key"])) {
            exit($sql);
        }
        
+    endif;
+
+    if($key == 'getUpdatingData') :
+        $id = $_POST['id'];
+
+        $sql = $database->conn->query("SELECT * FROM patients WHERE id = '$id'");
+       if($row = $sql->fetch_array()) {
+
+           $data = array(
+               'name' => $row['name'],
+               'lastname' => $row['lastname'],
+               'id_number' => $row['id_number'],
+               'issue' => $row['issue'],
+               'contact_number' => $row['contact_number'],
+               'address' => $row['address'],
+               'gender' => $row['gender'],
+               'note' => $row['note'],
+               'age' => $row['age'],
+               'guardian' => $row['guardian'],
+               'parent_contact' => $row['parent_contact'],
+               'issue_status' => $row['issue_status'],
+               'date_issue' => $row['date_issue'],
+               'time_issue' => $row['time_issue'],
+               'id' => $id
+           );
+    
+          exit(json_encode($data));
+       } else {
+           exit('Queries not executed properly');
+       }
+
+    endif;
+
+    if($key == 'updatePatient') :
+        $id = $_POST['id'];
+
+        $data = array(
+            "name" => $_POST['name'],
+            "address" => $_POST['address'],
+			"contact_number" => $_POST['contact_number'],
+			"gender" => $_POST['gender'],
+			"id_number" => $_POST['id_number'],
+			"issue" => $_POST['issue'],
+			"lastname" => $_POST['lastname'],
+			"age" => $_POST['age'],
+			"parent_contact" => $_POST['parent_contact'],
+            "guardian" => $_POST['guardian'],
+            "issue_status" => $_POST['issue_status'],
+            "note" => $_POST['note'],
+            "date_issue" => $_POST['date_issue'],
+            "time_issue" => $_POST['time_issue'],
+        );
+        $obj->updateAny('patients', $data, $id);
+        exit('Updated Successfully');
+
     endif;
 
 } else {
