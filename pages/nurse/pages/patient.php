@@ -152,8 +152,8 @@ span {
             
         </div>
         </div>
-    </div>
-
+    </div> 
+    <!-- End modal -->
     </div>
     </div>
 
@@ -270,7 +270,13 @@ function savePatients() {
   let date_issue = $('#date_issue').val();
 
   if(name == '' || lastname == '' || id_number == '' || issue == '' || contact_number == '' || address == '') {
-    alert('Incomplete credentials');
+
+    Alt.alternative({
+    status:'warning',
+    showConfirmButton:false,
+    title:'Incompelte Credentials!',
+    text:'Please complete all fields before you save!'
+    })
   } else {
   $.ajax({ 
                     url: '../../functions/fetchAjax.php',
@@ -293,8 +299,17 @@ function savePatients() {
                         date_issue: date_issue,
                         time_issue: getFullTime()
                     }, success: function(response){
-                        alert(response);
-                        location.reload();
+            
+                        Alt.alternative({
+                        status:'success',
+                        title:'Success',
+                        text: response
+                        }).then((res) => {
+                            setTimeout(() => {
+                                location.reload();
+                            }, 1000);
+                        })
+
                     }
     
                 });
@@ -303,7 +318,7 @@ function savePatients() {
 
 
  
-}
+} // end function
 
 function patientDetails(id) {
     $.ajax({ 
@@ -362,7 +377,12 @@ function updatePatients() {
   let timeDetails = document.getElementById('time_issue').value === '' ? document.getElementById('timeDetails').innerText : getFullTime();
 
   if(name == '' || lastname == '' || id_number == '' || issue == '' || contact_number == '' || address == '') {
-    alert('Incomplete credentials');
+    Alt.alternative({
+    status:'warning',
+    showConfirmButton:false,
+    title:'Incompelte Credentials!',
+    text:'Please complete all fields before you save!'
+    })
   } else {
   $.ajax({ 
                     url: '../../functions/fetchAjax.php',
@@ -386,8 +406,15 @@ function updatePatients() {
                         date_issue: date_issue,
                         time_issue: timeDetails
                     }, success: function(response){
-                        alert(response);
-                        location.reload();
+                        Alt.alternative({
+                        status:'success',
+                        title:'Success',
+                        text: response
+                        }).then((res) => {
+                            setTimeout(() => {
+                                location.reload();
+                            }, 1000);
+                        });
                     }
     
     });

@@ -80,12 +80,16 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['account_type'])) {
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="../../dependency/datatables/datatables.min.js"></script>
     <script src="../../javascript/admin.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.3/lottie.min.js"></script>
+    <script src="../../dependency/alert/js/alt-alert.js"></script>
   </body>
 </html>
 <script>
 // for user.php page table
 $(document).ready(function() {
   $('.userTable').DataTable();
+    //patient.php table
+  $('#patientTable').DataTable();
 });
 
 

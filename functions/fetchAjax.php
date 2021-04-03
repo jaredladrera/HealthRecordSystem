@@ -163,6 +163,12 @@ if(isset($_POST["key"])) {
 
     endif;
 
+    if($key == 'deletePatient') :
+        $id = $_POST['id'];
+        $sql = $database->conn->query("DELETE FROM patients where id = '$id'");
+        exit();
+    endif;
+
 } else {
     exit("Key is not set");
 }

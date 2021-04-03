@@ -22,11 +22,26 @@ Accomplished
 -create saveAny function for saving any data
 
 Weekends Task
--load table using ajax jquery
--reading some docs about fpdf
+-load table using ajax jquery (not needed)
+-reading some docs about fpdf (done)
 
 Tomorrow Task (March 17, 2021)
--update own account function (finsh)
+-update own account function (done)
 
 Tomorrow Task (March 18, 2021)
--Display data patient in patientDetails.php
+-Display data patient in patientDetails.php (done)
+
+Task Today
+-Install Swal alert (done in nurse account)
+-create sample fpdf (done)
+-implement data in card (done)
+-display patient in admin page (done)
+-delete patient in admin page (done)
+
+Pending functions
+-Update profilefunction in admin page
+-Graph bar implement data
+-Create PDF template
+-Implement data in PDF template
+-Landing page *optional
+-Announcement *optional 

@@ -151,7 +151,15 @@ function updateAccount() {
             email : email,
 
         }, success : function(res) {
-            alert(res);
+            Alt.alternative({
+            status:'success',
+            title:'Success',
+            text:res
+            }).then((res) => {
+                setTimeout(() => {
+                    location.reload();
+                }, 1000);
+            })
         }
 
     })

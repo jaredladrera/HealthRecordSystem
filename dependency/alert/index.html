@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>jQuery Alternative Alert Examples</title>
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.2/materia/bootstrap.min.css">
+<style>
+  .container { margin: 70px auto; }
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>jQuery Alternative Alert Examples</h1>
+    <div id="carbon-block" style="margin:30px auto"></div>
+<div style="margin:30px auto"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+    <p class="lead">A beautiful, customizable, animated, and absolutely responsive replacement for native JavaScript's alert popup box.</p>
+    <button type="button" onclick="return Alt.alternative({title:'Basic',text:'Basic Alert Box'})" class="btn btn-dark">Basic Alert</button>
+    <button type="button" onclick="return Alt.alternative({status:'success',title:'Success',text:'Your Request is successfully fethced'})" class="btn btn-success">Success Alert</button>
+    <button type="button" onclick="return Alt.alternative({status:'warning',title:'Validation Errors!',text:'Username field is required!, Email field is required!'})" class="btn btn-warning">Warning</button>
+    <button type="button" onclick="return Alt.alternative({status:'error',title:'Server Errors!',text:'Your request failed on server'})" class="btn btn-danger">Error Alert</button>
+    <button type="button" onclick="return Alt.alternative({status:'loading'})" class="btn btn-primary">Loading</button>
+    <button type="button" onclick="return Alt.alternative({status:'question',showConfirmButton:true,showCancelButton: true,stop:true,title:'Are You Sure?',text:'Your data will be lost!'}).then((res) => {Alt.alternative({status:'loading'}); res ? setTimeout(() => {Alt.alternative({status:'success'})},2000)  : null})" class="btn btn-info">Confirm Dialog</button>
+  </div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.3/lottie.min.js"></script>
+<script src="js/alt-alert.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script>
+try {
+  fetch(new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", { method: 'HEAD', mode: 'no-cors' })).then(function(response) {
+    return true;
+  }).catch(function(e) {
+    var carbonScript = document.createElement("script");
+    carbonScript.src = "//cdn.carbonads.com/carbon.js?serve=CK7DKKQU&placement=wwwjqueryscriptnet";
+    carbonScript.id = "_carbonads_js";
+    document.getElementById("carbon-block").appendChild(carbonScript);
+  });
+} catch (error) {
+  console.log(error);
+}
+</script>
+</body>
+</html>
