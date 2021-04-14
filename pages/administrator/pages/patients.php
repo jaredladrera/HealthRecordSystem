@@ -20,6 +20,7 @@ $sql = $database->conn->query("SELECT * FROM patients");
       <th scope="col">Issue</th>
       <th scope="col">Status</th>
       <th scope="col">Operations</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -31,9 +32,20 @@ $sql = $database->conn->query("SELECT * FROM patients");
       <td><?php echo $row['issue']; ?></td>
       <td><?php echo $row['issue_status'] == 'major' ? '<span class="badge badge-danger">'.$row['issue_status'].'</span>': '<span class="badge badge-primary">'.$row['issue_status'].'</span>'; ?></td>
       <td>
+
+
         <button class="btn btn-primary" onclick="patientDetails(<?php echo $row['id']; ?>)"><i class="fa fa-info-circle" aria-hidden="true"></i></button>
-        <button class="btn btn-info"><i class="fa fa-file-text" aria-hidden="true"></i></button>
         <button class="btn btn-danger" onclick="deletePatient(<?php echo $row['id']; ?>)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+ 
+      </td>
+      <td>
+        <div class="form-group">
+            <select class="form-control" onchange="requestPrint(<?php echo $row['id']; ?>)" id="printRequest">
+            <option value="" disabled selected>PDF File</option>
+            <option value="only"><a href="google.com"> Print only</a></option>
+            <option value="all"><a href="#"> Print all</a></option>
+            </select>
+        </div>
       </td>
       </tr>
     <?php endwhile; ?>
@@ -335,6 +347,25 @@ function updatePatients() {
 
   }
 } //end
+
+function requestPrint(id) {
+  var request = document.getElementById("printRequest").value;
+
+    $.ajax({ 
+            url: '../../forms/clearance.php',
+            method: 'post',
+            dataType: 'text',
+            data: {
+                id: id,
+                request: request
+            }, success: function(response){
+                window.open("../../forms/clearance.php");
+            }
+    
+    });
+
+ 
+}
 
 
 

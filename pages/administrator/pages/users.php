@@ -101,8 +101,20 @@ function modalOpenForAccountUpdate(id) {
 }
 
 function deleteAccount(id) {
-  if(confirm("Are you sure you want to delete?")) {
-    $.ajax({ 
+  Alt.alternative({
+  status:'question',        
+  showConfirmButton:true,
+  showCancelButton: true,
+  stop:true,
+  title:'Are You Sure?',
+  text:'Your data will be lost!'})
+  .then((res) => {
+    Alt.alternative({
+      status:'loading'
+    });
+    if (res) {
+
+      $.ajax({ 
       url: '../../functions/fetchAjax.php',
       method: 'post',
       dataType: 'text',
@@ -113,8 +125,10 @@ function deleteAccount(id) {
           $('#id_'+id).parent().remove();
       }
     })
-  }
-}
+ 
+    }
+})
+} //end function
 
 
 </script>

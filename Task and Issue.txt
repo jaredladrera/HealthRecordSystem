@@ -39,9 +39,12 @@ Task Today
 -delete patient in admin page (done)
 
 Pending functions
--Update profilefunction in admin page
+-Update profilefunction in admin page (done)
+-Display graph in admin account (done)
+-Confimation deleting account must swal in admin account page(finish)
 -Graph bar implement data
 -Create PDF template
 -Implement data in PDF template
 -Landing page *optional
 -Announcement *optional 
+-Delete all credential link with my name in system for security

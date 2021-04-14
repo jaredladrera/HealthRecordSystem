@@ -19,7 +19,7 @@ $database = new Database;
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 		
 			<link rel="stylesheet" href="../../css/nurse.css">
-			<link rel="stylesheet" href="../../css/chart.css">
+			<!-- <link rel="stylesheet" href="../../css/chart.css"> -->
       <link rel="stylesheet" href="../../dependency/datatables/datatables.min.css">
       <link rel="stylesheet" href="../../dependency/font-awesome/css/font-awesome.min.css">
     </head>
@@ -98,21 +98,20 @@ $database = new Database;
         <!-- Content here -->
         
         
-        <?php 
+<?php 
 
 if (isset($_GET['page'])) {
   $page = $_GET['page'];
   
   $display = "pages/".$page.'.php';
   
-  
-                        include($display);
-                      }else{
-                        $page = 'dashboard';
-                        $display = "pages/".$page.'.php';
-                        include($display);
-                      }
-                      ?>
+  include($display);
+  }else{
+    $page = 'dashboard';
+    $display = "pages/".$page.'.php';
+    include($display);
+  }
+?>
         
         
         

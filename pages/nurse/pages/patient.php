@@ -170,6 +170,7 @@ span {
       <th scope="col">Issue</th>
       <th scope="col">Status</th>
       <th scope="col">Operations</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -183,6 +184,15 @@ span {
       <td>
         <button class="btn btn-primary" onclick="patientDetails(<?php echo $row['id']; ?>)"><i class="fa fa-info-circle" aria-hidden="true"></i></button>
         <button class="btn btn-info"><i class="fa fa-file-text" aria-hidden="true"></i></button>
+      </td>
+      <td>
+        <div class="form-group">
+            <select class="form-control" onchange="requestPrint()" id="printRequest">
+            <option value="" disabled selected>PDF File</option>
+            <option value="only"><a href="google.com"> Print only</a></option>
+            <option value="all"><a href="#"> Print all</a></option>
+            </select>
+        </div>
       </td>
       </tr>
     <?php endwhile; ?>

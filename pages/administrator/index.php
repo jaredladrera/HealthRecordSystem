@@ -16,10 +16,12 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['account_type'])) {
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 		
-				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 		<link rel="stylesheet" href="../../css/admin.css">
-    <link rel="stylesheet" href="../../dependency/datatables/datatables.min.css">
+    <link rel="stylesheet" href="../../css/chart.css">
+      <link rel="stylesheet" href="../../dependency/datatables/datatables.min.css">
+      <link rel="stylesheet" href="../../dependency/font-awesome/css/font-awesome.min.css">
 
   </head>
   <body>
@@ -43,6 +45,9 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['account_type'])) {
           </li>
           <li>
             <a href="index.php?page=patients"><span class="fa fa-sticky-note mr-3"></span> Patient</a>
+          </li>
+          <li>
+            <a href="index.php?page=logs"><span class="fa fa-sign-in mr-3" ></span> Logs</a>
           </li>
           <li>
             <a href="index.php?page=accountSettings"><span class="fa fa-paper-plane mr-3"></span>Account Settings</a>
@@ -71,8 +76,10 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['account_type'])) {
                     }
                 ?>
       </div>
+    
       
 		</div>
+
 
     <script src="../../dependency/jquery.min.js"></script>
     <script src="../../dependency/popper.min.js"></script>

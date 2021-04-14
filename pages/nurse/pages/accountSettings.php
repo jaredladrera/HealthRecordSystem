@@ -1,6 +1,6 @@
 <?php 
 $myId = $_SESSION['id'];
-$query = 'SELECT * FROM accountinformation';
+$query = 'SELECT * FROM accountinformation WHERE id = '.$myId.'';
 $stmt = $database->conn->query($query);
 
 $row = $stmt->fetch_array();

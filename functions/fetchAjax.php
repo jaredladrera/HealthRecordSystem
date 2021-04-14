@@ -169,6 +169,12 @@ if(isset($_POST["key"])) {
         exit();
     endif;
 
+    if($key == 'deleteLogs'): 
+        $id = $_POST['id'];
+        $sql = $database->conn->query("DELETE FROM logs where id = '$id'");
+        exit();
+    endif;
+
 } else {
     exit("Key is not set");
 }
