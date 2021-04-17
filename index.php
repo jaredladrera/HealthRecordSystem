@@ -1,13 +1,13 @@
 <?php 
 session_start();
-if(isset($_SESSION['uid']) && isset($_SESSION['account_status'])) {
-    $status = $_SESSION['account_status'];
+if(isset($_SESSION['logs_id']) && isset($_SESSION['account_type'])) {
+    $status = $_SESSION['account_type'];
     if($status == 'admin') {
         header("Location: pages/administrator/index.php");
     } else {
         header("Location: pages/nurse/index.php");
     }
-} else {
+} 
 
 ?>
 <!DOCTYPE html>
@@ -74,4 +74,4 @@ if(isset($_SESSION['uid']) && isset($_SESSION['account_status'])) {
 </body>
 </html>
 
-<?php } ?>
+

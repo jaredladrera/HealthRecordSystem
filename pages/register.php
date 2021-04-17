@@ -7,6 +7,20 @@
     <title>Home</title>
     <link rel="stylesheet" href="../css/MyCustomStyle.css">
     <link rel="stylesheet" href="../dependency/bootstrap/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+
+    <link rel="stylesheet" href="../dependency/datatables/datatables.min.css">
+    <link rel="stylesheet" href="../dependency/font-awesome/css/font-awesome.min.css">
+    <style>
+        .field-icon {
+        float: right;
+        margin-left: -30px;
+        margin-top: -25px;
+        position: relative;
+        z-index: 2;
+        }
+    </style>
 </head>
 <body style=" background-color: #17a2b8 !important;">
 
@@ -66,14 +80,19 @@
                                 <label for="username" class="text-info">Username:</label><br>
                                 <input type="text" name="username" id="username" class="form-control">
                             </div>
+
                             <div class="form-group">
-                                <label for="password" class="text-info">Password:</label><br>
-                                <input type="text" name="password" id="password" class="form-control">
+                                <label for="password" class="text-info">Password</label>
+                                <input  type="password" id="password" class="form-control" name="password">
+                                <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
+
                             <div class="form-group">
                                 <label for="rePassword" class="text-info">Re-enter Password:</label><br>
-                                <input type="text" name="rePassword" id="rePassword" class="form-control">
+                                <input type="password" name="rePassword" id="rePassword" class="form-control">
+                                <span toggle="#rePassword" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
+               
        
 
                             <div class="form-group">
@@ -157,7 +176,19 @@
         }
 
            
-        }
+        } //end
 
+
+
+        $(".toggle-password").click(function() {
+
+        $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+            input.attr("type", "text");
+            } else {
+            input.attr("type", "password");
+        }
+        });
 
 </script>

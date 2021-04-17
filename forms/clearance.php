@@ -1,8 +1,9 @@
 <?php 
 require('../dependency/fpdf/fpdf.php');
+require('../functions/mysqliConnection.php');
 class PDF extends FPDF
 {
-
+    
 // Page header
 function Header()
 {
@@ -34,11 +35,13 @@ function Footer()
 // Colored table
 function FancyTable($header)
 {
-    if(isset($_POST['id'])) {
-        
-        $this->Cell(40,0,'Name: Firstname Lastname '.$_POST['id'].'');
+    $database = new Database();
+    if(isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $sql = $database->conn->query("SELECT * FROM patients WHERE id='$id'");
+        $data = $sql->fetch_array();
+        $this->Cell(40,0,'Name: '.ucfirst($data['name']).' '.ucfirst($data['lastname']));
     }
-    $this->Cell(40,0,'Name: Firstname Lastname ');
     $this->Ln(10);
     // Colors, line width and bold font
     $this->SetFillColor(0,0,0);
@@ -58,21 +61,40 @@ function FancyTable($header)
     $this->SetFont('');
     // Data
     $fill = false;
-    // foreach($data as $row)
-    // {
-    //     $this->Cell($w[0],6,$row[0],'LR',0,'L',$fill);
-    //     $this->Cell($w[1],6,$row[1],'LR',0,'L',$fill);
-    //     $this->Cell($w[2],6,number_format($row[2]),'LR',0,'R',$fill);
-    //     $this->Cell($w[3],6,number_format($row[3]),'LR',0,'R',$fill);
-    //     $this->Ln();
-    //     $fill = !$fill;
-    // }
+    if(isset($_GET['request'])) {
+        if($_GET['request'] == 'only') {
+            $this->Cell($w[0],6,$data['date_issue'],'LR',0,'R',$fill);
+            $this->Cell($w[1],6,$data['issue'],'LR',0,'R',$fill);
+            $this->Cell($w[2],6,$data['medecine_take'],'LR',0,'R',$fill);
+            $this->Ln();
+            $fill = !$fill;
+
+        } else {
+            $name = $data['name'];
+            $lastname = $data['lastname'];
+            $sql2 = $database->conn->query("SELECT * FROM patients WHERE name = '$name' AND lastname = '$lastname'");
+
+            while($row = $sql2->fetch_array()) {
+                $this->Cell($w[0],6,$row['date_issue'],'LR',0,'R',$fill);
+                $this->Cell($w[1],6,$row['issue'],'LR',0,'R',$fill);
+                $this->Cell($w[2],6,$row['medecine_take'],'LR',0,'R',$fill);
+                $this->Ln();
+                $fill = !$fill;
+    
+            }
+
+        }
+
+    }
+
+    
     // Closing line
     $this->Cell(array_sum($w),0,'','T');
 }
 }
 
 // Instanciation of inherited class
+
 $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->Ln(8);

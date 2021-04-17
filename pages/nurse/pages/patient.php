@@ -125,6 +125,11 @@ span {
                             <option value="minor">Minor</option>
                             <option value="major">Major</option>
                         </select>
+
+                        <div class="form-group">
+                            <label for="medecine">Medecine Take</label>
+                            <input type="text" id="medecine" class="form-control" >
+                        </div>
                     </div>
   
                     </div>
@@ -183,11 +188,10 @@ span {
       <td><?php echo $row['issue_status'] == 'major' ? '<span class="badge badge-danger">'.$row['issue_status'].'</span>': '<span class="badge badge-primary">'.$row['issue_status'].'</span>'; ?></td>
       <td>
         <button class="btn btn-primary" onclick="patientDetails(<?php echo $row['id']; ?>)"><i class="fa fa-info-circle" aria-hidden="true"></i></button>
-        <button class="btn btn-info"><i class="fa fa-file-text" aria-hidden="true"></i></button>
       </td>
       <td>
         <div class="form-group">
-            <select class="form-control" onchange="requestPrint()" id="printRequest">
+            <select class="form-control" onchange="requestPrint(<?php echo $row['id']; ?>)" id="printRequest">
             <option value="" disabled selected>PDF File</option>
             <option value="only"><a href="google.com"> Print only</a></option>
             <option value="all"><a href="#"> Print all</a></option>
@@ -277,6 +281,7 @@ function savePatients() {
   let parent_contact = $('#parent_contact').val();
   let note = $('#notes').val();
   let address = $('#address').val();
+  let medecine = $('#medecine').val();
   let date_issue = $('#date_issue').val();
 
   if(name == '' || lastname == '' || id_number == '' || issue == '' || contact_number == '' || address == '') {
@@ -307,6 +312,7 @@ function savePatients() {
                         note: note,
                         parent_contact: parent_contact,
                         date_issue: date_issue,
+                        medecine: medecine,
                         time_issue: getFullTime()
                     }, success: function(response){
             
@@ -352,6 +358,7 @@ function patientDetails(id) {
              $('#parent_contact').val(response.parent_contact);
              $('#notes').val(response.note);
              $('#address').val(response.address);
+             $('#medecine').val(response.medecine);
              $('#patientID').val(response.id);
              document.getElementById("date_issue").value = response.date_issue;
              document.getElementById("timeDetails").innerHTML = response.time_issue;
@@ -431,6 +438,25 @@ function updatePatients() {
 
   }
 } //end
+
+function requestPrint(id) {
+  var request = document.getElementById("printRequest").value;
+    
+    $.ajax({ 
+            url: '../../forms/clearance.php',
+            method: 'post',
+            dataType: 'text',
+            data: {
+                id: id,
+                request: request
+            }, success: function(response){
+                window.open("../../forms/clearance.php?id="+id+"&request="+request);
+            }
+    
+    });
+
+ 
+}
 
 
 

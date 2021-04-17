@@ -135,7 +135,68 @@ if (isset($_GET['page'])) {
 $(document).ready(function() {
   //patient.php table
   $('#patientTable').DataTable();
+  $.ajax({
+    url: "http://localhost/HealthRecordSystem/functions/chart_data.php",
+    method: "GET",
+    success: function(data) {
+
+var ctx = document.getElementById('myChart').getContext('2d');
+
+
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+
+    // The data for our dataset
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        datasets: [{
+            label: 'Total ',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [data.jan, data.feb, data.march, data.apr, data.may, data.june, data.july, data.aug, data.sept, data.oct, data.nov, data.dec],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 205, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(201, 203, 207, 0.2)',
+                'rgba(255, 205, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(201, 203, 207, 0.2)'
+              ],
+              borderColor: [
+                'rgb(255, 99, 132)',
+                'rgb(255, 159, 64)',
+                'rgb(255, 205, 86)',
+                'rgb(75, 192, 192)',
+                'rgb(54, 162, 235)',
+                'rgb(153, 102, 255)',
+                'rgb(201, 203, 207)',
+                'rgb(255, 205, 86)',
+                'rgb(75, 192, 192)',
+                'rgb(54, 162, 235)',
+                'rgb(153, 102, 255)',
+                'rgb(201, 203, 207)'
+              ],
+              borderWidth: 3
+        }]
+    },
+
 });
+
+    },
+    error: function(data) {
+        console.log(data);
+    }
+})
+
+}); // end of onready
 
 
 </script>

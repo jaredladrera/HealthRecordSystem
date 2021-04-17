@@ -40,11 +40,13 @@ $sql = $database->conn->query("SELECT * FROM patients");
       </td>
       <td>
         <div class="form-group">
+        
             <select class="form-control" onchange="requestPrint(<?php echo $row['id']; ?>)" id="printRequest">
             <option value="" disabled selected>PDF File</option>
             <option value="only"><a href="google.com"> Print only</a></option>
             <option value="all"><a href="#"> Print all</a></option>
             </select>
+
         </div>
       </td>
       </tr>
@@ -350,7 +352,7 @@ function updatePatients() {
 
 function requestPrint(id) {
   var request = document.getElementById("printRequest").value;
-
+    
     $.ajax({ 
             url: '../../forms/clearance.php',
             method: 'post',
@@ -359,7 +361,7 @@ function requestPrint(id) {
                 id: id,
                 request: request
             }, success: function(response){
-                window.open("../../forms/clearance.php");
+                window.open("../../forms/clearance.php?id="+id+"&request="+request);
             }
     
     });

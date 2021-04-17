@@ -62,7 +62,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
                     if($sql) {
                         // echo $database->conn->insert_id;
                          $_SESSION['logs_id'] = $database->conn->insert_id;
-                        header("Location: ../pages/administrator/index.php");
+                        header("Location: ../pages/nurse/index.php");
                     } else {
                         echo $sql;
                     }

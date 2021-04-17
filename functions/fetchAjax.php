@@ -47,7 +47,8 @@ if(isset($_POST["key"])) {
             "issue_status" => $_POST['issue_status'],
             "date_issue" => $_POST['date_issue'],
             "time_issue" => $_POST['time_issue'],
-            "note" => $_POST['note']
+            "note" => $_POST['note'],
+            "medecine_take" => $_POST['medecine'],
         );
         $obj->insertAny('patients', $data, $message);
 
@@ -129,6 +130,7 @@ if(isset($_POST["key"])) {
                'issue_status' => $row['issue_status'],
                'date_issue' => $row['date_issue'],
                'time_issue' => $row['time_issue'],
+               'medecine' => $row['medecine_take'],
                'id' => $id
            );
     
