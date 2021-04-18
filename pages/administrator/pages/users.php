@@ -27,7 +27,7 @@ $sql = $database->conn->query("SELECT * FROM accountinformation");
           <button type="button" class="btn btn-info" onclick="modalOpenForAccountUpdate(<?php echo $row['id']; ?>)">
             Change Status
           </button>
-            <button class="btn btn-danger" onclick="deleteAccount(<?php echo $row['id']; ?>)">Delete Account</button>
+            <button class="btn btn-danger" onclick="deleteAccount(<?php echo $row['id']; ?>)"><i class="fa fa-trash" aria-hidden="true"></i></button>
           </td>
 
         </tr>

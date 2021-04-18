@@ -34,7 +34,7 @@ $database = new Database;
               <li>
 	              <a href="index.php?page=dashboard">Dashboard </a>
               </li>
-              <li>
+              <!-- <li>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                   <li>
@@ -47,13 +47,13 @@ $database = new Database;
                     <a href="#">Page 3</a>
                   </li>
                 </ul>
-              </li>
+              </li> -->
 	          <li>
               <a href="index.php?page=patient">Patient list</a>
 	          </li>
-	          <li>
+	          <!-- <li>
               <a href="#">Announcement</a>
-	          </li>
+	          </li> -->
 	          <li>
               <a href="index.php?page=accountSettings">Account Settings</a>
 	          </li>

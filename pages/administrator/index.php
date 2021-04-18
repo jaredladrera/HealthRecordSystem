@@ -41,7 +41,7 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['account_type'])) {
               <a href="index.php?page=dashboard"><span class="fa fa-user mr-3"></span> Dashboard</a>
           </li>
           <li>
-            <a href="index.php?page=users"><span class="fa fa-sticky-note mr-3"></span>All Users</a>
+            <a href="index.php?page=users"><span class="fa fa-users mr-3"></span>All Users</a>
           </li>
           <li>
             <a href="index.php?page=patients"><span class="fa fa-sticky-note mr-3"></span> Patient</a>
@@ -50,11 +50,11 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['account_type'])) {
             <a href="index.php?page=logs"><span class="fa fa-sign-in mr-3" ></span> Logs</a>
           </li>
           <li>
-            <a href="index.php?page=accountSettings"><span class="fa fa-paper-plane mr-3"></span>Account Settings</a>
+            <a href="index.php?page=accountSettings"><span class="fa fa-cog mr-3"></span>Account Settings</a>
           </li>
 
           <li>
-            <a href="../../functions/logout.php"><span class="fa fa-paper-plane mr-3"></span> Logout</a>
+            <a href="../../functions/logout.php"><i class="fa fa-power-off mr-3" ></i> Logout</a>
           </li>
         </ul>
 
@@ -169,6 +169,25 @@ var chart = new Chart(ctx, {
 //     alert("hello");
 // }
 
+(function($) {
+
+"use strict";
+
+var fullHeight = function() {
+
+  $('.js-fullheight').css('height', $(window).height());
+  $(window).resize(function(){
+    $('.js-fullheight').css('height', $(window).height());
+  });
+
+};
+fullHeight();
+
+$('#sidebarCollapse').on('click', function () {
+    $('#sidebar').toggleClass('active');
+});
+
+})(jQuery);
 
 
 
