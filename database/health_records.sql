@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Apr 24, 2021 at 08:59 AM
+=======
+-- Generation Time: Apr 18, 2021 at 03:14 AM
+>>>>>>> 6b997a814e2c10f42b4e3359ab765b36281f403b
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.3.27
 
@@ -81,12 +85,17 @@ INSERT INTO `logs` (`id`, `date_in`, `time_in`, `date_out`, `time_out`, `login_i
 (24, 'Sat April 17 2021', '11:13:am', 'Sat April 17 2021', '11:14:am', 0, 'coco'),
 (27, 'Sat April 17 2021', '12:47:am', 'Sat April 17 2021', '2:31:am', 1, 'lance21'),
 (28, 'Sat April 17 2021', '2:32:am', 'Sat April 17 2021', '2:39:am', 1, 'lance21'),
+<<<<<<< HEAD
 (30, 'Sun April 18 2021', '9:13:am', 'Sun April 18 2021', '12:11:pm', 1, 'lance21'),
 (31, 'Sun April 18 2021', '12:11:pm', 'Sun April 18 2021', '12:12:pm', 0, 'coco'),
 (32, 'Sun April 18 2021', '12:12:pm', '', '', 1, 'lance21'),
 (33, 'Sun April 18 2021', '12:34:pm', '', '', 0, 'coco'),
 (34, 'Mon April 19 2021', '2:40:pm', '', '', 1, 'lance21'),
 (35, 'Fri April 23 2021', '2:59:pm', '', '', 1, 'lance21');
+=======
+(29, 'Sat April 17 2021', '2:39:am', '', '', 0, 'coco'),
+(30, 'Sun April 18 2021', '9:13:am', '', '', 1, 'lance21');
+>>>>>>> 6b997a814e2c10f42b4e3359ab765b36281f403b
 
 -- --------------------------------------------------------
 
@@ -110,18 +119,28 @@ CREATE TABLE `patients` (
   `parent_contact` varchar(50) NOT NULL,
   `issue_status` varchar(20) NOT NULL,
   `date_issue` varchar(50) NOT NULL,
-  `time_issue` varchar(20) NOT NULL
+  `time_issue` varchar(20) NOT NULL,
+  `month` varchar(40) NOT NULL,
+  `year` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `patients`
 --
 
+<<<<<<< HEAD
 INSERT INTO `patients` (`id`, `name`, `lastname`, `id_number`, `issue`, `contact_number`, `address`, `gender`, `note`, `age`, `guardian`, `medecine_take`, `parent_contact`, `issue_status`, `date_issue`, `time_issue`) VALUES
 (1, 'Lance Jared Cabiscuelas', 'Cabiscuelas', 'jhgkjk', 'gkgk', '09307980536', 'Malvar Batangas', 'male', 'fxgfff', 'g456', 'Lance Jared Cabiscuelas', '', '09307980536', 'minor', '2021-03-04', '1:17 PM'),
 (2, 'Lance Jared Cabiscuelas', 'Cabiscuelas', 'jhgkjk', 'gkgk', '09307980536', 'Malvar Batangas', 'male', 'need to undergo to ctscan', 'g456', 'Lance Jared Cabiscuelas', '', '09307980536', 'major', '2021-04-13', '6:53 PM'),
 (4, 'jack', 'jill', 'S2349459', 'toothache', '93485', 'jsdjhsdjs', 'male', 'test test', '22', 'jsdjf', '', 'jdsfhjsdf', 'minor', '2021-04-17', '11:17 AM'),
 (5, 'christine', 'senete', 'SN35965', 'Headache', '094574757', '2343 malvar', 'female', 'minor problem', '23', 'Florida senete', 'Biogesic', '254354535', 'minor', '2021-04-13', '02:49 AM');
+=======
+INSERT INTO `patients` (`id`, `name`, `lastname`, `id_number`, `issue`, `contact_number`, `address`, `gender`, `note`, `age`, `guardian`, `medecine_take`, `parent_contact`, `issue_status`, `date_issue`, `time_issue`, `month`, `year`) VALUES
+(1, 'Lance Jared Cabiscuelas', 'Cabiscuelas', 'jhgkjk', 'gkgk', '09307980536', 'Malvar Batangas', 'male', 'fxgfff', 'g456', 'Lance Jared Cabiscuelas', '', '09307980536', 'minor', '2021-03-04', '1:17 PM', '', ''),
+(2, 'Lance Jared Cabiscuelas', 'Cabiscuelas', 'jhgkjk', 'gkgk', '09307980536', 'Malvar Batangas', 'male', 'need to undergo to ctscan', 'g456', 'Lance Jared Cabiscuelas', '', '09307980536', 'major', '2021-04-13', '6:53 PM', '', ''),
+(4, 'jack', 'jill', 'S2349459', 'toothache', '93485', 'jsdjhsdjs', 'male', 'test test', '22', 'jsdjf', '', 'jdsfhjsdf', 'minor', '2021-04-17', '11:17 AM', '', ''),
+(5, 'christine', 'senete', 'SN35965', 'Headache', '094574757', '2343 malvar', 'female', 'minor problem', '23', 'Florida senete', 'Biogesic', '254354535', 'minor', '2021-04-13', '02:49 AM', '', '');
+>>>>>>> 6b997a814e2c10f42b4e3359ab765b36281f403b
 
 --
 -- Indexes for dumped tables
@@ -147,7 +166,11 @@ ALTER TABLE `patients`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+>>>>>>> 6b997a814e2c10f42b4e3359ab765b36281f403b
 
 --
 -- AUTO_INCREMENT for table `patients`
