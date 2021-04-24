@@ -23,11 +23,20 @@ $count = $stmt->num_rows;
   box-shadow: 5px 10px #888888;
   }
 
+  .field-icon {
+        float: right;
+        margin-left: -30px;
+        margin-top: -25px;
+        position: relative;
+        z-index: 2;
+    }
+
+
 </style>
 <div class="container" style="border: 1px solid black; border-radius: 20px; margin-top: 3rem;">
  
     <h2 class="text-center mt-3 mb-3" >Account Settings</h2>
-    <input type="hidden" value="<?php echo $row['id']; ?>" id="accountID">
+    <input type="hidden" value="<?php echo $myId; ?>" id="accountID">
     <div class="row justify-content-center">
         <div class="col col-md-3">
             <div class="form-group">
@@ -79,9 +88,10 @@ $count = $stmt->num_rows;
             </div>
         </div>
         <div class="col col-md-3">
-                <div class="form-group">
+        <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="text" id="password" class="form-control" value="<?php echo $row['account_password']; ?>" >
+                        <input  type="password" id="password" class="form-control" name="password" value="<?php echo $row['account_password']; ?>">
+                        <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                 </div>
         </div>
         <div class="col col-md-3">
@@ -111,7 +121,7 @@ $count = $stmt->num_rows;
 
     <div class="row mb-5 mt-3 justify-content-center">
         <button class="btn btn-primary mr-2" onclick="updateAccount()">Save Changes</button>
-        <button class="btn btn-danger" onclick="test()">Reset</button>
+        <button class="btn btn-danger" onclick="reset()">Reset</button>
     </div>
 
 </div>
@@ -130,6 +140,7 @@ function updateAccount() {
     let idNumber = $('#idNumber').val();
     let email = $('#email').val();
     let id = $('#accountID').val();
+
 
     $.ajax({
         url: '../../functions/fetchAjax.php',
@@ -183,6 +194,21 @@ function test() {
         }
 
     })
+
+}
+
+function reset() {
+    $('#name').val('');
+    $('#lastname').val('');
+    $('#address').val('');
+     $('#middleName').val('');
+     $('#gender').val('');
+    $('#age').val('');
+     $('#username').val('');
+     $('#password').val('');
+    $('#contactNumber').val('');
+     $('#idNumber').val('');
+     $('#email').val('');
 
 }
 

@@ -28,13 +28,13 @@ $database = new Database;
       <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar">
           <div class="p-4 pt-5">
-            <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(../../images/logo2.jpg);" style="background-color: white;"></a>
+            <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(../../images/bsu-logo-v2.png);" style="background-color: white;"></a>
             <ul class="list-unstyled components mb-5">
               
               <li>
 	              <a href="index.php?page=dashboard">Dashboard </a>
               </li>
-              <li>
+              <!-- <li>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                   <li>
@@ -47,13 +47,13 @@ $database = new Database;
                     <a href="#">Page 3</a>
                   </li>
                 </ul>
-              </li>
+              </li> -->
 	          <li>
               <a href="index.php?page=patient">Patient list</a>
 	          </li>
-	          <li>
+	          <!-- <li>
               <a href="#">Announcement</a>
-	          </li>
+	          </li> -->
 	          <li>
               <a href="index.php?page=accountSettings">Account Settings</a>
 	          </li>
@@ -197,6 +197,17 @@ var chart = new Chart(ctx, {
 })
 
 }); // end of onready
+
+$(".toggle-password").click(function() {
+
+$(this).toggleClass("fa-eye fa-eye-slash");
+    var input = $($(this).attr("toggle"));
+    if (input.attr("type") == "password") {
+    input.attr("type", "text");
+    } else {
+    input.attr("type", "password");
+}
+});
 
 
 </script>

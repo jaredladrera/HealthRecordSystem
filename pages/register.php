@@ -20,6 +20,8 @@
         position: relative;
         z-index: 2;
         }
+
+        #hideDiv{background:red; width:400px; margin:0 auto; color:#fff; padding:10px; text-align:center;}
     </style>
 </head>
 <body style=" background-color: #17a2b8 !important;">
@@ -91,6 +93,7 @@
                                 <label for="rePassword" class="text-info">Re-enter Password:</label><br>
                                 <input type="password" name="rePassword" id="rePassword" class="form-control">
                                 <span toggle="#rePassword" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                <div id="errMessage"></div>
                             </div>
                
        
@@ -115,6 +118,8 @@
 <script src="../dependency/jquery.min.js"></script>
 <script src="../dependency/popper.min.js"></script>
 <script src="../dependency/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.3/lottie.min.js"></script>
+<script src="../dependency/alert/js/alt-alert.js"></script>
 </body>
 </html>
 <script>
@@ -127,7 +132,7 @@
                 event.stopPropagation();
         });
 
-        register = () => {
+        function register(){
            name =  $('#name').val();
            lastname =  document.getElementById('lastname').value;
            middle =  $('#middle').val();
@@ -164,15 +169,28 @@
                         password: password,
                         email: email,
                     }, success: function(response){
-                        alert(response);
-                        window.location.href = '../index.php';
+                        Alt.alternative({
+                        status:'success',
+                        title:'Success',
+                        text:'You are now register!'
+                        }).then((data) => {
+                            if(data) {
+
+                                window.location.href = '../index.php';
+                            }
+                        })
                     }
     
                 });
 
         } else {
-            document.getElementById('errorMessage').innerHTML = "Password not match!";
-            alert("Password not match!");
+
+            
+
+                document.getElementById('errMessage').innerHTML = '<div class="alert alert-danger alert-dismissible fade show mt-3" role="alert"><strong>Error : </strong> Password Not Match!!! <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+   
+     
+
         }
 
            

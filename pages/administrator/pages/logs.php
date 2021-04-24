@@ -52,7 +52,9 @@ $sql = $database->conn->query("SELECT * FROM logs WHERE id != '$log_id'");
 
 <div class="row">
     <h2 class="text-center">Notice</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit doloremque ratione placeat sapiente eaque consequatur animi culpa, perspiciatis fuga veniam error, aliquid ipsum, sequi accusamus! Aut expedita laudantium, neque nemo adipisci ratione tempora doloremque, voluptates nihil sapiente ut corporis iure libero recusandae, repudiandae quas corrupti! Tempora impedit eius error neque! Maiores rem dolores magnam quia mollitia cumque esse corporis labore, veritatis eum vel, explicabo velit. Nihil, veniam ex explicabo obcaecati beatae accusamus, adipisci ad facere iste molestias id perspiciatis eveniet sequi repudiandae tempora amet labore consectetur ullam fuga voluptatum nesciunt magnam? Fuga quas est cupiditate! Possimus repellat cumque ipsum voluptates.</p>
+    <p>This system is a property of Batangas State University. Any unauthorized used of this system outside the 
+    campus can be punishable under Republic Act No. 8293 or the Philippine Copyright Law.
+    All Rights Reserved 2021.</p>
 </div>
 
 </div>

@@ -151,7 +151,7 @@
 
         <div class="modal-body">
 
-        <table class="table table-dark">
+        <table class="table table-dark table-hover">
             <thead>
               <tr>
                 <th scope="col">Month</th>

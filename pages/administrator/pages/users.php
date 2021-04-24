@@ -27,7 +27,7 @@ $sql = $database->conn->query("SELECT * FROM accountinformation");
           <button type="button" class="btn btn-info" onclick="modalOpenForAccountUpdate(<?php echo $row['id']; ?>)">
             Change Status
           </button>
-            <button class="btn btn-danger" onclick="deleteAccount(<?php echo $row['id']; ?>)">Delete Account</button>
+            <button class="btn btn-danger" onclick="deleteAccount(<?php echo $row['id']; ?>)"><i class="fa fa-trash" aria-hidden="true"></i></button>
           </td>
 
         </tr>
@@ -52,7 +52,7 @@ $sql = $database->conn->query("SELECT * FROM accountinformation");
               <input type="hidden" id="userId">
               <select class="form-control" id="status" style="border:1px solid black">
                 <option value="user">User</option>
-                <option value="nurse">Nurse</option>
+                <option value="nurse">Nurse/Staff</option>
                 <option value="admin">Administrator</option>
 
               </select>
@@ -101,7 +101,8 @@ function modalOpenForAccountUpdate(id) {
 }
 
 function deleteAccount(id) {
-  Alt.alternative({
+
+Alt.alternative({
   status:'question',        
   showConfirmButton:true,
   showCancelButton: true,
@@ -109,11 +110,8 @@ function deleteAccount(id) {
   title:'Are You Sure?',
   text:'Your data will be lost!'})
   .then((res) => {
-    Alt.alternative({
-      status:'loading'
-    });
-    if (res) {
 
+    if (res) {
       $.ajax({ 
       url: '../../functions/fetchAjax.php',
       method: 'post',
@@ -122,12 +120,15 @@ function deleteAccount(id) {
         key: 'deleteAccount',
         id: id
       }, success: function(response) {
-          $('#id_'+id).parent().remove();
+          //$('#id_'+id).parent().remove();
+          location.reload();
       }
     })
  
     }
 })
+
+
 } //end function
 
 

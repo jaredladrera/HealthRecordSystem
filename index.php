@@ -56,7 +56,7 @@ if(isset($_SESSION['logs_id']) && isset($_SESSION['account_type'])) {
                 <div class="col-md-6 login-form-2">
                     <h3>Mission</h3>
                     <p class="text-white">A university committed to producing leaders by providing a 21st century learning environment through innovations in education, multidisciplinary research, and community and industry partnerships in order to nurture the spirit of nationhood, propel the national economy, and engage the world for sustainable development.</p>
-                    <h3>Vission</h3>
+                    <h3>Vision</h3>
                     <p class="text-white">
                     A premier national university that develops leaders in the global knowledge economy.
                     </p>

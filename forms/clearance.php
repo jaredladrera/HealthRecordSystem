@@ -9,6 +9,7 @@ function Header()
 {
     // Logo
      $this->Image('../images/bsulogo.png',50,10,100);
+     $this->Image('../images/form-back.jpg',5,50,200);
     // Arial bold 15
     $this->SetFont('Arial','B',15);
     // Move to the right
@@ -52,8 +53,9 @@ function FancyTable($header)
     // Header
 
     $w = array(60, 55, 70);
+    $x = array(60, 55, 70);
     for($i=0;$i<count($header);$i++)
-        $this->Cell($w[$i],8,$header[$i],2,0,'C',true);
+        $this->Cell($w[$i],8,$header[$i],1,0,'C',true);
     $this->Ln();
     // Color and font restoration
     $this->SetFillColor(224,235,255);
@@ -63,9 +65,9 @@ function FancyTable($header)
     $fill = false;
     if(isset($_GET['request'])) {
         if($_GET['request'] == 'only') {
-            $this->Cell($w[0],6,$data['date_issue'],'LR',0,'R',$fill);
-            $this->Cell($w[1],6,$data['issue'],'LR',0,'R',$fill);
-            $this->Cell($w[2],6,$data['medecine_take'],'LR',0,'R',$fill);
+            $this->Cell($x[0],8,$data['date_issue'],'LR',0,'C',$fill);
+            $this->Cell($x[1],8,$data['issue'],'LR',0,'C',$fill);
+            $this->Cell($x[2],8,$data['medecine_take'],'LR',0,'C',$fill);
             $this->Ln();
             $fill = !$fill;
 
@@ -75,9 +77,9 @@ function FancyTable($header)
             $sql2 = $database->conn->query("SELECT * FROM patients WHERE name = '$name' AND lastname = '$lastname'");
 
             while($row = $sql2->fetch_array()) {
-                $this->Cell($w[0],6,$row['date_issue'],'LR',0,'R',$fill);
-                $this->Cell($w[1],6,$row['issue'],'LR',0,'R',$fill);
-                $this->Cell($w[2],6,$row['medecine_take'],'LR',0,'R',$fill);
+                $this->Cell($x[0],8,$row['date_issue'],'LR',0,'C',$fill);
+                $this->Cell($x[1],8,$row['issue'],'LR',0,'C',$fill);
+                $this->Cell($x[2],8,$row['medecine_take'],'LR',0,'C',$fill);
                 $this->Ln();
                 $fill = !$fill;
     
